@@ -3,7 +3,6 @@ const { DataTypes } = require("sequelize");
 // Luego le injectamos la conexion a sequelize.
 module.exports = (sequelize) => {
     // defino el modelo
-
     sequelize.define(
         "user",
         {
@@ -36,13 +35,12 @@ module.exports = (sequelize) => {
                 allowNull: true,
             },
             contact: {
-                type: DataTypes.BIGINT,
+                type: DataTypes.STRING,
                 allowNull: true,
             },
             email: {
                 type: DataTypes.STRING,
                 allowNull: true,
-
                 validate: {
                     isEmail: true, //==>> contains: '@.'
                 },
@@ -58,7 +56,7 @@ module.exports = (sequelize) => {
             },
             username: {
                 type: DataTypes.STRING,
-                defaultValue: "client",
+                defaultValue: "student",
                 get() {
                     const rawValue = this.getDataValue("username");
                     return rawValue ? rawValue.toUpperCase() : null;
@@ -68,9 +66,6 @@ module.exports = (sequelize) => {
                 type: DataTypes.BOOLEAN,
                 defaultValue: false,
                 allowNull: true,
-                /* set(value) {
-                    this.setDataValue(isAdmin, value);
-                }, */
             },
         },
         {

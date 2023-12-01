@@ -4,11 +4,12 @@ import { useSelector} from 'react-redux'
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import {LandingPage, Home, CreateVideogame, Detail}from './components'
 
-
-
 function App() {
   const token = useSelector((state) => state.usersReducers.token);
+
+
   if(token){
+    
   return (
     <BrowserRouter>
           <React.Fragment>

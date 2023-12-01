@@ -38,6 +38,7 @@ const sequelize =
 const basename = path.basename(__filename);
 const modelDefiners = [];
 
+//leemos los modelos dentro models
 fs.readdirSync(path.join(__dirname, "models"))
     .filter(
         (file) =>
@@ -63,7 +64,36 @@ sequelize.models = Object.fromEntries(capsEntries);
 // Para relacionarlos hacemos un destructuring
 const { User } = sequelize.models;
 
+// funcion para procedimientos almacenados.
+async function loadStoredProcedures() {
+    const queryPath = path.join(__dirname, "query");
+    const storedProcedures = [];
+
+    await Promise.allSettled(
+        fs.readdirSync(queryPath).map(async (file) => {
+            try {
+                const query = require(path.join(queryPath, file));
+                //storedProcedures.push(() => sequelize.query(query)); //los carga y ejecuta
+                storedProcedures.push(query); //los carga pero no los ejecuta
+                console.log(`Stored procedure ${file} loaded successfully.`);
+            } catch (error) {
+                console.error(`Error loading stored procedure ${file}:`, error);
+                sequelize.close();
+            }
+        })
+    );
+    //return storedProcedures; // Devolver un array con los procedimientos almacenados cargados en la base de datos. El array puede estar vacío si no se cargaron procedimientos almacenados.
+}
+
+// Cargar los procedimientos almacenados al inicio de la aplicación
+loadStoredProcedures().catch((error) => {
+    console.error("Error loading stored procedures:", error);
+    sequelize.close(); // Cerrar la conexión a la base de datos si ocurre un error al cargar los procedimientos almacenados. Esto permite que la aplicación se cierre y se muestre el mensaje de error.
+    throw error; // Proporcionar una excepción para que el proceso de inicialización de la aplicación se detenga y se muestre el mensaje de error. Esto permite el proceso de inicialización de la aplicacion
+});
+
 module.exports = {
     ...sequelize.models, // para poder importar los modelos así: const { Product, User } = require('./db.js');
     conn: sequelize, // para importart la conexión { conn } = require('./db.js');
+    // loadStoredProcedures, // para cargar los procedimientos almacenados en la base de datos como array
 };

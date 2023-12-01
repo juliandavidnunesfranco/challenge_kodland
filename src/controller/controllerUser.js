@@ -1,11 +1,7 @@
 const bcrypt = require("bcrypt");
-const jwt = require("jsonwebtoken");
 const { User } = require("../db/index.js");
-const fs = require("fs");
-const { JWT_SECRET } = process.env;
 
 const postUser = async (req, res) => {
-    let saltRounds = 11;
     const {
         name,
         lastName,
@@ -22,48 +18,39 @@ const postUser = async (req, res) => {
         if (!name || !lastName || !email || !password) {
             return res.status(400).send("Information is required!");
         }
-        bcrypt.hash(password, saltRounds, async function (err, hash) {
-            const newUser = await User.findOrCreate({
-                where: {
-                    email,
-                },
-                defaults: {
-                    name,
-                    lastName,
-                    typeIdentification,
-                    identification,
-                    contact,
-                    email,
-                    address,
-                    password: hash,
-                    isAdmin,
-                },
-            });
+        const existingUser = await User.findOne({ where: { email } });
 
-            const token = jwt.sign({ id: newUser[0].id }, JWT_SECRET);
-            let userData = {
-                name: newUser[0].name,
-                lastName: newUser[0].lastName,
-                typeIdentification: newUser[0].typeIdentification || "",
-                identification: newUser[0].identification || "",
-                contact: newUser[0].contact || "",
-                email: newUser[0].email,
-                address: newUser[0].address || "",
-                token: token,
-                isAdmin: false,
-                id: newUser[0].id,
-            };
+        if (existingUser) {
+            return res.status(400).json({ message: "The user already exists" });
+        }
+        let saltRounds = 10;
+        const hashedPassword = await bcrypt.hash(password, saltRounds);
 
-            return res.status(201).json(userData); 
+        // Create the new user in the database
+        await User.create({
+            name,
+            lastName,
+            typeIdentification,
+            identification,
+            contact,
+            email,
+            address,
+            password: hashedPassword,
+            isAdmin,
         });
-        return;
-    } catch (error) {
-        console.log(error);
-        return res.send(error.message).status(400);
-    }
-  
-};
 
+        return res.status(201).json({
+            message: "User created successfully",
+        });
+    } catch (error) {
+        console.log("Error creating user:", error);
+        return res.status(500).json({ message: "Error creating user" });
+    } finally {
+        console.log("finally");
+        return res.end();
+    }
+};
+/* 
 const postLogin = async (req, res) => {
     const { email, password } = req.body;
     try {
@@ -198,7 +185,6 @@ const verifyToken = (req, res, next) => {
                 next();
             }
         });
-       
     } else {
         res.status(403).json({ message: "Unauthorized access" });
     }
@@ -295,7 +281,7 @@ const forgotPassword = async (req, res) => {
         const user = await User.findOne({ where: { email } });
         if (user) {
             const token = jwt.sign({ id: user.id }, "cambiarcontrasena");
-            const url = `http://localhost:3000/changepassword?token=${token}`;// url to front 
+            const url = `http://localhost:3000/changepassword?token=${token}`; // url to front
             await sendEmail(forgotPasswordEmail(email, url));
             return res.send("ok");
         } else {
@@ -319,7 +305,6 @@ const verifyTokenChange = (req, res, next) => {
                 next();
             }
         });
-    
     } else {
         res.status(403).json({ message: "Unauthorized access" });
     }
@@ -343,16 +328,16 @@ const changePassword = async (req, res) => {
         return res.status(400).send(error.message);
     }
 };
-
+ */
 module.exports = {
     postUser,
-    postLogin,
-    updatePersonalData,
-    getUsers,
-    getIdUsers,
-    verifyToken,
-    changeAdmin,
-    forgotPassword,
-    changePassword,
-    verifyTokenChange,
+    // postLogin,
+    // updatePersonalData,
+    // getUsers,
+    // getIdUsers,
+    // verifyToken,
+    // changeAdmin,
+    // forgotPassword,
+    // changePassword,
+    // verifyTokenChange,
 };
