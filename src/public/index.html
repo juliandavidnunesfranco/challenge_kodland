@@ -15,47 +15,90 @@
     <meta property="og:ttl" content="604800"></meta>
     <link rel="icon" href='/favicon.ico' type="image/x-icon"></link>
     <link rel="shortcut icon" href="images/favicon.ico">
-    <!-- All CSS Files -->
-    <!-- Bootstrap css -->
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <!-- Icon Font -->
-    <link rel="stylesheet" href="css/font-awesome.min.css">
-    <link rel="stylesheet" href="css/ionicons.min.css">
-    <link rel="stylesheet" href="css/et-line.css">
-    <!-- Plugins css file -->
-    <link rel="stylesheet" href="css/plugins.css">
-    <!-- Theme main style -->
-    <link rel="stylesheet" href="style.css">
-    <!-- Responsive css -->
-    <link rel="stylesheet" href="css/responsive.css">
-    <!-- Modernizr JS -->
-    <script src="js/vendor/modernizr-2.8.3.min.js"></script>
+    
+    <style>
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            background-color: rosybrown;
+         
+        }
+        .title{
+            font-size: 2em;
+            color: #fff;
+            font-weight: 500;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin-bottom: 10px;
+        }
+        #hero-section {
+            text-align: center;
+            animation: fadeInUp 1s ease-in-out;
+        }
+
+        p {
+            font-size: 1.2em;
+            color: #fff;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin-bottom: 20px;
+        }
+
+        button {
+            padding: 15px 30px;
+            font-size: 16px;
+            background-color: #3498db;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            animation: fadeInUp 1s ease-in-out;
+            transition: background-color 0.3s ease
+            
+        }
+
+        button:hover {
+            color: gold;
+            font-weight: 600;
+            background-color: #297fb8;
+        }
+
+        @keyframes fadeInUp {
+            0% {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
 
 </head>
 
 <body>
-<!--Minimal Header Section-->
-<div class="header-section section" style="background-color: blanchedalmond;">
-    <div class="container">
-        <div class="row">
-            <div class="col-xs-12">
-                <!--Logo-->
-                <div class="float-left">
-                    <a href="index.html" class="header-logo"><img class="img-logo" src="img/logo/logo-dark.svg" alt=""></a>
-                </div>
-                <!--Menu Toggle-->
-                <div class="float-right">
-                    <button class="menu-toggle mp-mToggle text-dark" style="background-color: red;"><i class="ion-android-menu"></i></button>
-                </div>
-                     <!--Minimal Menu-->
-                 <div>
-                <nav style="background-color: pink; margin: 4px;"> <a href="index.html">home</a> <a href="about.html">about</a><a href="service.html">service</a></nav>
-            </div>
-        </div>                        
+    <!-- LANDING PAGE -->
+    <div id="hero-section">
+        <h1 class="title" >Bienvenido a KODLAND</h1>
+        <p>En esta secciòn veremos que es React y como aplicarlo en la programaciòn de Software.</p>
+        <button id="redirect">            
+            ¡ADELANTE!
+        </button>
     </div>
-</div>
+
+
+</body>
+
+<script>
+    // Agrega un script para redirigir al hacer clic en el botón
+    document.getElementById("redirect").addEventListener("click", function() {
+    // Cambia "nueva-pagina.html" por la URL de la página a la que quieres redirigir
+        window.location.href = "http://localhost:3000";
+    });
+</script>
+
     
-<footer>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum dolorem hic ullam, nobis vitae sunt? Velit deserunt consequuntur repudiandae earum nihil? Iste expedita iusto voluptas maiores, veritatis recusandae sed veniam!</p>
-</footer>
+
 </html>
