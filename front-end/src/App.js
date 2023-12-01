@@ -5,11 +5,22 @@ function App() {
         <div
             style={{
                 fontSize: "2em",
-                color: "blue",
+                backgroundColor: "blue",
                 fontFamily: "Arial, sans-serif",
             }}
         >
-            <h3>HOLA MUNDO</h3>
+            <h3
+                style={{
+                    color: "yellowgreen",
+                }}
+            >
+                HOLA MUNDO
+            </h3>
+            <button
+                style={{
+                    backgroundColor: "red",
+                }}
+            ></button>
         </div>
     );
 }
