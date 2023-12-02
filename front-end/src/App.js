@@ -1,5 +1,6 @@
 import React from "react";
 import Header from "./components/Header";
+import Button from "./components/Button";
 
 function App() {
     return (
@@ -50,15 +51,21 @@ function App() {
                 <div className="mp-hero-section section">
                     <div className="container">
                         {/* BARRA DE NAVEGACION DE LA PAGINA WEB.  HEADER.js. */}
+
                         <Header />
+
                         <div className="row">
                             <div className="col-xs-12">
                                 <div className="mp-hero-content col-sm-6 col-xs-12">
                                     <h1>REACT.JS</h1>
                                     <h4>Libreria para front-end .</h4>
+                                    
                                 </div>
+                                
                             </div>
+                            
                         </div>
+                        <Button />
                     </div>
                 </div>
             </body>

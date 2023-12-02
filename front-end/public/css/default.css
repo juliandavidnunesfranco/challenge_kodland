@@ -31,7 +31,7 @@ html, body {
   
 }
 body {
-  background-image: url('/image/background.png');
+  background-image: pink, /* url('/image/background.png') */;
   color: #999999;
   font-family: 'Moon2.0-Regular', sans-serif;
   font-weight: 400;

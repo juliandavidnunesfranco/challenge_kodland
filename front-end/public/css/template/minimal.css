@@ -30,7 +30,7 @@
 --------------------------------------*/
 /*-- Section Title --*/
 .mp-section-title {
-  
+  /* background-image:  url('/image/background.png') */
 }
 .mp-section-title::before {
   color: #cfdddf;
@@ -102,6 +102,8 @@
 .mp-menu-section .container {
   margin: auto;
 }
+
+
 .mp-menu-section.active {
   opacity: 1;
   visibility: visible;
@@ -136,6 +138,8 @@
 --------------------------------------*/
 .mp-hero-section {
   background-image: url('../../image/background.png');
+  height: 120vh;
+  width: 100%;
   background-size: cover;
 }
 
@@ -160,14 +164,42 @@
   text-transform: uppercase;
 }
 .mp-hero-content h4 {
-  color: #999999;
+  color: #3e3e3e;
   font-size: 16px;
   font-weight: 600;
   letter-spacing: 1px;
   margin-bottom: 0;
   text-transform: uppercase;
+  
+}
+.mp-hero-section .custom-button {
+  background-color: #87CEEB;  /* Azul claro */
+  color: #ffffff;  /* Blanco */
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: transform 0.2s ease, background-color 0.2s ease, color 0.2s ease; 
+  width: min-content;
+ 
+}
+.mp-hero-section .button-container{
+  display: flex;
+  justify-content: flex-start;
+  margin-left: 100px;
+}
+.mp-hero-section .custom-button:hover {
+  transform: scale(1.1) rotate(360deg);  
+  background-color: #0B0F05;
+  color: greenyellow;
+  border-radius: 2px solid greenyellow;
 }
 
+
+.mp-hero-section .custom-button:active {
+  transform: scale(1) rotate(360deg);
+}
 
 /* -----------------------------------
     4. About Section
