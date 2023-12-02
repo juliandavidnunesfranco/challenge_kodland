@@ -233,6 +233,16 @@
   margin-left: 15px;
 }
 
+.mb-about-content .react-logo {
+  width: 60px; 
+  height: 60px;
+  margin-left: 5px; 
+  transition: transform 1s ease;
+
+}
+.react-logo:hover{
+  transform: rotate(360deg);
+}
 
 /* -----------------------------------
     5. Portfolio Section
