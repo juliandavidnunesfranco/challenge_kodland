@@ -38,20 +38,25 @@ const Class = () => {
         },
     ];
 
-    const filteredData = currentCategory === "*" ? data : data.filter(item => item.category === currentCategory);
+    const filteredData =
+        currentCategory === "*"
+            ? data
+            : data.filter((item) => item.category === currentCategory);
 
     const handleCategoryChange = (category) => {
         setCurrentCategory(category);
     };
 
     return (
-        <div className="mp-portfolio-section section pb-20">
+        <div className="mp-portfolio-section section pb-20 figures">
             <div className="container">
                 <div className="row">
                     <div className="col-xs-12 mb-65">
                         <div className="mp-isotop-filter isotop-filter">
                             <button
-                                className={currentCategory === "*" ? "active" : ""}
+                                className={
+                                    currentCategory === "*" ? "active" : ""
+                                }
                                 onClick={() => handleCategoryChange("*")}
                             >
                                 All
@@ -59,29 +64,40 @@ const Class = () => {
                             {data.map((item) => (
                                 <button
                                     key={item.id}
-                                    className={currentCategory === item.category ? "active" : ""}
-                                    onClick={() => handleCategoryChange(item.category)}
+                                    className={
+                                        currentCategory === item.category
+                                            ? "active"
+                                            : ""
+                                    }
+                                    onClick={() =>
+                                        handleCategoryChange(item.category)
+                                    }
                                 >
                                     {item.category}
                                 </button>
                             ))}
                         </div>
                     </div>
+
                     <div className="col-xs-12">
-                        <div className="isotop-grid isotop-grid-masonry row" id="portfolioGrid">
+                        <div
+                            className="isotop-grid isotop-grid-masonry row"
+                            id="portfolioGrid"
+                        >
                             {filteredData.map((item) => (
                                 <div
                                     key={item.id}
                                     className={`mp-isotop-item isotop-item ${item.category} col-sm-12 col-xs-12 mb-30`}
                                 >
                                     <a href="#/">
-                                        <img
-                                            src={item.imageUrl}
-                                            alt=""
-                                        />
+                                        <img src={item.imageUrl} alt="" />
                                         <div className="content">
-                                            <h5 className="title">{item.title}</h5>
-                                            <span className="cat">{item.category}</span>
+                                            <h5 className="title">
+                                                {item.title}
+                                            </h5>
+                                            <span className="cat">
+                                                {item.category}
+                                            </span>
                                         </div>
                                     </a>
                                 </div>

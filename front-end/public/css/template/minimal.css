@@ -201,6 +201,39 @@
   transform: scale(1) rotate(360deg);
 }
 
+.figure{
+  background-image: url('../../image/bg-grid.png');
+  background-size: cover;
+  background-position: center left;
+  height: 70vh;
+  width: 100%;
+  display: flex;
+  align-items:center;
+  justify-content: center;
+}
+ 
+.figure .container {
+  display: flex;
+  justify-content: space-between;
+  padding: 50px;
+}
+ 
+.figure .row{
+  text-align: left;
+}
+.figure p{
+  color: #5d5d5d;
+}
+
+.figure-image{
+  width: 60%;
+  height: 60%;
+  background-image: url('../../image/photo.jpg');
+  background-size: contain; 
+  background-repeat: no-repeat;
+  background-position: 60% top;
+}
+
 /* -----------------------------------
     4. About Section
 --------------------------------------*/
@@ -247,10 +280,17 @@
 /* -----------------------------------
     5. Portfolio Section
 --------------------------------------*/
-.mb-portfolio-section {}
+.mb-portfolio-section   {
+ 
+}
 
+.figures{
+  background-color: #87CEEB;
+}
 /*-- Portfolio Filter --*/
-.mp-isotop-filter {}
+.mp-isotop-filter {
+  
+}
 .mp-isotop-filter button {
   background-color: transparent;
   border: medium none;
@@ -262,6 +302,7 @@
   height: 30px;
   letter-spacing: 0.5px;
   line-height: 30px;
+  margin-top: 9px;
   margin-bottom: 5px;
   margin-right: 5px;
   padding: 0 20px;
@@ -282,6 +323,7 @@
   display: flex;
   flex-wrap: wrap;
   margin: -15px; 
+  
 }
 
 /*-- Portfolio Item --*/
@@ -289,6 +331,8 @@
   width: 33.33%;
   padding: 15px;
   box-sizing: border-box;
+  
+  
 }
 .mp-isotop-item img {
   width: 60%;
@@ -299,7 +343,7 @@
   position: relative;
 }
 .mp-isotop-item a::before {
-  background-color: lightgrey;
+  background-color: #000000;
   content: "";
   height: 100%;
   left: 0;
@@ -318,6 +362,7 @@
   position: absolute;
   right: 55px;
   text-align: center;
+  
 }
 .mp-isotop-item a:hover .content {
   opacity: 1;
@@ -362,13 +407,17 @@
 /* -----------------------------------
     6. Client Section
 --------------------------------------*/
-.mp-client-section {}
+.mp-client-section {
+
+
+}
 
 /*-- Client Slider --*/
 .mp-client-slider {}
 .mp-client-slider .single-client {}
 .mp-client-slider .single-client img {
   display: inline-block;
+  
 }
 
 
@@ -376,28 +425,37 @@
     7. Footer Section
 --------------------------------------*/
 .mp-footer-section {
-  background-color: #0B0F05;
+  
+  
 }
 
 /*-- Footer Top --*/
 .mp-fotter-top {
   border-bottom: 1px solid #3f3f3f;
   padding: 65px 0;
+  background-color: transparent;
 }
 
 /*-- Footer Social --*/
-.mp-footer-social {}
+.mp-footer-social {
+  text-align: center;
+  
+}
 .mp-footer-social a {
-  color: #dcdcdc;
+  color: #ffffffff;
   display: inline-block;
   margin: 0 12px;
   padding: 0 3px;
+  background-color: transparent;
+ 
 }
 .mp-footer-social a:hover {
-  color: #dcdcdc;
+  color: #ffffffff;
   display: inline-block;
   margin: 0 12px;
   padding: 0 3px;
+  background-color: #5d5d5d;
+  border-radius: 23%;
 }
 .mp-footer-social a i {
   font-size: 22px;
@@ -409,6 +467,7 @@
 .mp-fotter-bottom {
   border-bottom: 1px solid #3f3f3f;
   padding: 60px 0;
+  background-color: #0B0F05;
 }
 
 .mp-footer-copyright {}

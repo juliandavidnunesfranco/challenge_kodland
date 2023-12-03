@@ -2,6 +2,7 @@ import React from "react";
 import Header from "./components/Header";
 import Button from "./components/Button";
 import Class from "./components/Class";
+import TwoImages from "./components/TwoImages";
 
 function App() {
     return (
@@ -89,31 +90,6 @@ function App() {
                                         de aplicaciones web modernas y
                                         eficientes.
                                     </p>
-                                    {/*   <p>
-                                        Al utilizar un enfoque basado en
-                                        componentes, React facilita la creación
-                                        y el mantenimiento de interfaces de
-                                        usuario interactivas y reutilizables. Su
-                                        arquitectura modular permite dividir la
-                                        interfaz de usuario en componentes
-                                        independientes, lo que simplifica la
-                                        comprensión del código y fomenta la
-                                        reutilización de código en diferentes
-                                        partes de la aplicación.
-                                    </p>
-                                    <p>
-                                        Aunque React se originó en el contexto
-                                        de las aplicaciones web, su versatilidad
-                                        lo ha llevado más allá de las páginas
-                                        web. Ahora es comúnmente utilizado en el
-                                        desarrollo de aplicaciones móviles,
-                                        aplicaciones web progresivas (PWA) y
-                                        aplicaciones de escritorio. Su
-                                        flexibilidad y eficiencia en el
-                                        rendimiento lo convierten en una opción
-                                        poderosa para una variedad de proyectos
-                                        en el ámbito del desarrollo de software.
-                                    </p> */}
                                 </p>
                                 <a href="#/">
                                     Leer más
@@ -128,9 +104,66 @@ function App() {
                         </div>
                     </div>
                 </div>
-
+                {/* Section figures */}
                 <div>
                     <Class />
+                </div>
+                {/* Section Infomative */}
+
+                <div>
+                    <TwoImages />
+                </div>
+
+                <div className="mp-footer-section section">
+                    <div className="mp-fotter-top">
+                        <div className="container">
+                            <div className="row">
+                                <img
+                                    className="foot-logo"
+                                    src="/Logo_Kodland2.svg"
+                                    alt="footer"
+                                />
+                                <div className="mp-footer-social text-center col-xs-12">
+                                    <a href="#/">
+                                        <i className="ion-social-facebook-outline" />
+                                    </a>
+                                    <a href="#/">
+                                        <i className="ion-social-dribbble-outline" />
+                                    </a>
+                                    <a href="#/">
+                                        <i className="ion-social-github-outline" />
+                                    </a>
+                                    <a href="#/">
+                                        <i className="ion-social-tux" />
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="mp-fotter-bottom">
+                        <div className="container">
+                            <div className="row">
+                                <div className="mp-footer-copyright col-md-6 col-xs-12">
+                                    <p>
+                                        Copyright © 2023 {}
+                                        <a href="https://github.com/juliandavidnunesfranco/challenge_kodland">
+                                            JULIAN DAVID AND KODLAND
+                                        </a>
+                                        . All Rights Reserved.
+                                    </p>
+                                </div>
+                                <div className="mp-footer-contact col-md-6 col-xs-12">
+                                    <p>
+                                        <span>Call :</span> +57 323 568 24 68
+                                    </p>
+                                    <p>
+                                        <span>Email :</span>
+                                        juliandavidnunesfranco@hotmail.es
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </body>
         </>
