@@ -1,6 +1,7 @@
 import React from "react";
 import Header from "./components/Header";
 import Button from "./components/Button";
+import Class from "./components/Class";
 
 function App() {
     return (
@@ -50,7 +51,7 @@ function App() {
 
                 <div className="mp-hero-section section">
                     <div className="container">
-                        {/* BARRA DE NAVEGACION DE LA PAGINA WEB.  HEADER.js. */}
+                        {/* BARRA DE NAVEGACION DE LA PAGINA WEB. --->>> HEADER.js */}
 
                         <Header />
 
@@ -66,7 +67,7 @@ function App() {
                     </div>
                 </div>
 
-                {/*Section text about the course*/}
+                {/*Section  about the course*/}
                 <div className="mp-about-section section pt-150 pb-150">
                     <div className="container">
                         <div className="row">
@@ -88,7 +89,7 @@ function App() {
                                         de aplicaciones web modernas y
                                         eficientes.
                                     </p>
-                                    <p>
+                                    {/*   <p>
                                         Al utilizar un enfoque basado en
                                         componentes, React facilita la creación
                                         y el mantenimiento de interfaces de
@@ -112,10 +113,10 @@ function App() {
                                         rendimiento lo convierten en una opción
                                         poderosa para una variedad de proyectos
                                         en el ámbito del desarrollo de software.
-                                    </p>
+                                    </p> */}
                                 </p>
-                                <a href="/artist">
-                                    Read More{" "}
+                                <a href="#/">
+                                    Leer más
                                     <i className="fa fa-long-arrow-right" />
                                     <img
                                         src="/logo192.png"
@@ -126,6 +127,10 @@ function App() {
                             </div>
                         </div>
                     </div>
+                </div>
+
+                <div>
+                    <Class />
                 </div>
             </body>
         </>

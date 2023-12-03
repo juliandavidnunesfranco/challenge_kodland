@@ -256,34 +256,42 @@
   border: medium none;
   border-radius: 5px;
   color: #999999;
-  display: block;
-  float: left;
+  display: inline-block;
   font-size: 12px;
   font-weight: 700;
   height: 30px;
   letter-spacing: 0.5px;
   line-height: 30px;
   margin-bottom: 5px;
+  margin-right: 5px;
   padding: 0 20px;
   text-transform: uppercase;
 }
 .mp-isotop-filter button.active, .mp-isotop-filter button.active:hover {
   background-color: #3e3e3e;
   color: #ffffff;
+  
 }
 .mp-isotop-filter button:hover {
   color: #3e3e3e;
+
 }
 
 /*-- Portfolio Grid --*/
-.mp-isotop-grid {}
+.mp-isotop-grid {
+  display: flex;
+  flex-wrap: wrap;
+  margin: -15px; 
+}
 
 /*-- Portfolio Item --*/
 .mp-isotop-item {
-  float: left;
+  width: 33.33%;
+  padding: 15px;
+  box-sizing: border-box;
 }
 .mp-isotop-item img {
-  width: 100%;
+  width: 60%;
 }
 .mp-isotop-item a {
   display: block;
@@ -291,7 +299,7 @@
   position: relative;
 }
 .mp-isotop-item a::before {
-  background-color: #000000;
+  background-color: lightgrey;
   content: "";
   height: 100%;
   left: 0;
@@ -302,6 +310,7 @@
 }
 .mp-isotop-item a:hover::before {
   opacity: 0.65;
+  border-radius: 23px;
 }
 .mp-isotop-item a .content {
   bottom: 50px;
@@ -312,9 +321,10 @@
 }
 .mp-isotop-item a:hover .content {
   opacity: 1;
+
 }
 .mp-isotop-item a .content .title {
-  color: #ffffff;
+  color: #9999;
   font-size: 15px;
   font-weight: 600;
   letter-spacing: 1px;
@@ -341,9 +351,11 @@
   -webkit-transition: all 0.3s ease 0s;
   -o-transition: all 0.3s ease 0s;
   transition: all 0.3s ease 0s;
+  
 }
 .mp-isotop-item a:hover .content .cat {
   left: 0;
+  
 }
 
 

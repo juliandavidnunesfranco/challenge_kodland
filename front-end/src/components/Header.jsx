@@ -60,7 +60,7 @@ export default function Header() {
                                 <a
                                     href="/"
                                     style={{
-                                        color: "#3e3e3e",
+                                        color: "#999999",
                                         display: "block",
                                         fontSize: "13px",
                                         fontWeight: 600,
@@ -76,7 +76,7 @@ export default function Header() {
                                 <a
                                     href="#/"
                                     style={{
-                                        color: "#3e3e3e",
+                                        color: "##999999",
                                         display: "block",
                                         fontSize: "13px",
                                         fontWeight: 600,
@@ -92,7 +92,7 @@ export default function Header() {
                                 <a
                                     href="#/"
                                     style={{
-                                        color: "#3e3e3e",
+                                        color: "##999999",
                                         display: "block",
                                         fontSize: "13px",
                                         fontWeight: 600,
@@ -108,7 +108,7 @@ export default function Header() {
                                 <a
                                     href="#/"
                                     style={{
-                                        color: "#3e3e3e",
+                                        color: "##999999",
                                         display: "block",
                                         fontSize: "13px",
                                         fontWeight: 600,
@@ -124,7 +124,7 @@ export default function Header() {
                                 <a
                                     href="#/"
                                     style={{
-                                        color: "#3e3e3e",
+                                        color: "##999999",
                                         display: "block",
                                         fontSize: "13px",
                                         fontWeight: 600,
@@ -140,7 +140,7 @@ export default function Header() {
                                 <a
                                     href="#/"
                                     style={{
-                                        color: "#3e3e3e",
+                                        color: "##999999",
                                         display: "block",
                                         fontSize: "13px",
                                         fontWeight: 600,
