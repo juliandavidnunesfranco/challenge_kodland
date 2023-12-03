@@ -3,7 +3,7 @@ const router = Router();
 
 const {
     postUser, //
-    // postLogin,
+    postLogin,
     // updatePersonalData,
     // getUsers,
     // getIdUsers,
@@ -22,7 +22,7 @@ router.get("/", (req, res) => {
 
 router.post("/register", postUser); //
 
-//router.post("/login", postLogin);
+router.post("/login", postLogin);
 //router.put("/updateprofile", verifyToken, updatePersonalData);
 //router.put("/update/:id", changeAdmin);
 //router.post("/forgot", forgotPassword);

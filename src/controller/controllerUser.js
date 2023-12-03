@@ -50,65 +50,40 @@ const postUser = async (req, res) => {
         return res.end();
     }
 };
-/* 
+
 const postLogin = async (req, res) => {
     const { email, password } = req.body;
+
     try {
-        if (email && password) {
-            const users = await User.findAll();
-            const user = users.find(
-                (user) => user.email.toLowerCase() === email.toLowerCase()
-            );
-            if (user) {
-                bcrypt.compare(password, user.password, function (err, result) {
-                    if (result === true) {
-                        const token = jwt.sign({ id: user.id }, JWT_SECRET);
-                        let userData;
-                        if (user.isAdmin) {
-                            userData = {
-                                name: user.name,
-                                lastName: user.lastName,
-                                typeIdentification: user.typeIdentification,
-                                identification: user.identification,
-                                contact: user.contact,
-                                email: user.email,
-                                address: user.address,
-                                token: token,
-                                isAdmin: true,
-                                id: user.id,
-                            };
-                        } else {
-                            userData = {
-                                name: user.name,
-                                lastName: user.lastName,
-                                typeIdentification: user.typeIdentification,
-                                identification: user.identification,
-                                contact: user.contact,
-                                email: user.email,
-                                address: user.address,
-                                token: token,
-                                isAdmin: false,
-                                id: user.id,
-                            };
-                        }
-                        console.log("welcome");
-                        res.status(201).json(userData);
-                        return;
-                    } else {
-                        console.log("Please validate the information.");
-                        return res.status(404).redirect("/register");
-                    }
-                });
-            } else {
-                console.log("User not found");
-                return res.status(404).send("User not found.");
-            }
+        if (!email || !password) {
+            return res
+                .status(400)
+                .json({ message: "Please provide email and password" });
         }
+
+        const user = await User.findOne({ where: { email } });
+
+        if (!user) {
+            return res.status(401).json({ message: "Invalid credentials" });
+        }
+
+        const isPasswordValid = await bcrypt.compare(password, user.password);
+
+        if (!isPasswordValid) {
+            return res.status(401).json({ message: "Invalid credentials" });
+        }
+        return res.status(201).json({
+            message: "Login successful",
+            code: 201,
+            user,
+        });
     } catch (error) {
-        return res(error.message).status(400);
+        console.error(error);
+        conn.close();
+        return res.status(500).json({ message: error.message });
     }
 };
-
+/*
 const getUsers = async (req, res) => {
     let id = req.authdata.id;
 
@@ -331,7 +306,7 @@ const changePassword = async (req, res) => {
  */
 module.exports = {
     postUser,
-    // postLogin,
+    postLogin,
     // updatePersonalData,
     // getUsers,
     // getIdUsers,

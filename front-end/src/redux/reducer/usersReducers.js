@@ -22,7 +22,7 @@ export default function createUsers(state = initialState, action) {
             return {
                 ...state,
                 user: action.payload,
-                token: action.payload.token,
+                //token: action.payload.token,
             };
         case LOGOUT_USER:
             return {
