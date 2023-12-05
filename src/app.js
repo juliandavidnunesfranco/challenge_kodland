@@ -9,7 +9,7 @@ const rateLimit = require("express-rate-limit");
 require("./db/index.js");
 
 //middlewares config to app
-// app.use(express); 
+// app.use(express);
 app.use(express.urlencoded({ extended: true, limit: "150mb" }));
 app.use(express.json({ limit: "50mb" }));
 app.use(express.static("public"));

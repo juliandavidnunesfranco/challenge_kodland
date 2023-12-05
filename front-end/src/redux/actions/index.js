@@ -10,7 +10,8 @@ export const GET_ALL_USER = "GET_ALL_USER"; //ok
 
 /* ACTION FOR CREATE AN USER */
 export function createUser(data) {
-    const REGISTER_URL = "http://localhost:4000/users/register";
+    const REGISTER_URL =
+        "http://localhost:4000/users/register";
     const USER_TOKEN = "user";
 
     return async (dispatch) => {
@@ -96,7 +97,8 @@ export function updateUser(input, token) {
 
 /* action for login */
 export function loginUser(data) {
-    const LOGIN_URL = "http://localhost:4000/users/login";
+    const LOGIN_URL =
+        "http://localhost:4000/users/login";
 
     return async (dispatch) => {
         try {
