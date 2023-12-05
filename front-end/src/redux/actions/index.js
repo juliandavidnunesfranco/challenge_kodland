@@ -11,7 +11,7 @@ export const GET_ALL_USER = "GET_ALL_USER"; //ok
 /* ACTION FOR CREATE AN USER */
 export function createUser(data) {
     const REGISTER_URL =
-        "https://challenge-kodland-backend-juliandavidnunesfranco.vercel.app/users/register";
+        "https://challenge-kodland-backend-ddb7rv0w7-juliandavidnunesfranco.vercel.app/users/register";
     const USER_TOKEN = "user";
 
     return async (dispatch) => {
@@ -98,7 +98,7 @@ export function updateUser(input, token) {
 /* action for login */
 export function loginUser(data) {
     const LOGIN_URL =
-        "https://challenge-kodland-backend-juliandavidnunesfranco.vercel.app/users/login";
+        "https://challenge-kodland-backend-ddb7rv0w7-juliandavidnunesfranco.vercel.app/users/login";
 
     return async (dispatch) => {
         try {
