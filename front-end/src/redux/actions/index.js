@@ -27,7 +27,6 @@ export function createUser(data) {
                 });
 
                 return dispatch({ type: CREATE_USER, payload: user });
-
             }
         } catch (error) {
             if (error.response) {
@@ -52,8 +51,6 @@ export function createUser(data) {
                     text: "Error al procesar la solicitud",
                 });
             }
-
-            console.error("LA ACTION ERROR", error);
         }
     };
 }
@@ -102,14 +99,42 @@ export function loginUser(data) {
     const LOGIN_URL = "http://localhost:4000/users/login";
 
     return async (dispatch) => {
-        const response = await axios.post(LOGIN_URL, data);
-        if (response?.status === 201) {
-            const { user } = response.data;
-            console.log(user);
-            return dispatch({ type: LOGIN_USER, payload: user });
-        } else {
-            alert("Error", "Usuario o contraseña incorrecta", "error");
-            console.log("LA ACTION ERROR");
+        try {
+            const response = await axios.post(LOGIN_URL, data);
+
+            if (response?.status === 201) {
+                const { user } = response.data;
+                swal.fire({
+                    icon: "success",
+                    title: "Bienvenido!",
+                    text: "Ahora podras ingresar.",
+                });
+
+                return dispatch({ type: LOGIN_USER, payload: user });
+            }
+        } catch (error) {
+            if (error.response) {
+                // El servidor respondió con un código de estado de error.
+                swal.fire({
+                    icon: "error",
+                    title: "Oops...",
+                    text: error.response.data.message,
+                });
+            } else if (error.request) {
+                // La solicitud fue hecha ,no se recibió respuesta
+                swal.fire({
+                    icon: "error",
+                    title: "Oops...",
+                    text: "Error en la solicitud, no se recibió respuesta del servidor",
+                });
+            } else {
+                // Algo sucedió en la configuración de la solicitud que generó un error
+                swal.fire({
+                    icon: "error",
+                    title: "Oops...",
+                    text: "Error al procesar la solicitud",
+                });
+            }
         }
     };
 }
