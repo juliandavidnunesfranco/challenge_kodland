@@ -96,7 +96,7 @@ export function updateUser(input, token) {
 
 /* action for login */
 export function loginUser(data) {
-    const LOGIN_URL = "http://localhost:4000/users/login";
+    const LOGIN_URL = "https://challenge-kodland-juliandavidnunesfranco.vercel.app/users/login";
 
     return async (dispatch) => {
         try {

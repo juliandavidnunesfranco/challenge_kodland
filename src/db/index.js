@@ -23,6 +23,7 @@ const sequelize =
               },
               dialectOptions: {
                   keepAlive: true,
+                  ssl: true,
               },
               logging: false,
               native: false,
