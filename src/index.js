@@ -1,12 +1,12 @@
 require("dotenv").config();
 const app = require("./app");
-const https = require("https");
+const http = require("http");
 const { conn } = require("./db/index.js");
 const { PORT } = process.env;
 
 async function startServer() {
     try {
-        const server = https.createServer(app);
+        const server = http.createServer(app);
         server.maxConnections = 500;
         server.timeout = 30000;
 

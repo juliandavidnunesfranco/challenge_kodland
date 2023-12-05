@@ -32,7 +32,7 @@ app.use((req, res, next) => {
         "GET, POST, OPTIONS, PUT, DELETE"
     );
     next();
-});
+}); 
 
 // limit requests from same API
 app.use(

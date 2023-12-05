@@ -99,7 +99,7 @@ export function updateUser(input, token) {
 export function loginUser(data) {
     const LOGIN_URL =
         "https://challenge-kodland-juliandavidnunesfranco.vercel.app/users/login";
-
+                
     return async (dispatch) => {
         try {
             const response = await axios.post(LOGIN_URL, data);
