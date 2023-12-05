@@ -20,10 +20,8 @@ const Button = () => {
     return (
         <>
             <div className="button-container">
-                <div>
-                    <div className="custom-button" onClick={handleButtonClick}>
-                        INICIAR
-                    </div>
+                <div className="custom-button" onClick={handleButtonClick}>
+                    INICIAR
                 </div>
             </div>
         </>

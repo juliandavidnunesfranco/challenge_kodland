@@ -55,55 +55,59 @@ const Login = () => {
                 <link rel="stylesheet" href="/style.css" />
                 <link rel="stylesheet" href="/minimal.css" />
             </head>
-            <div className="section-register">
-                <div
-                    style={{
-                        background: "#fff",
-                        padding: "10px",
-                        width: "70px",
-                        borderRadius: "15px",
-                        position: "absolute",
-                        top: "30px",
-                        left: "34px",
-                    }}
-                >
-                    <Link to="/">
-                        <strong> Home </strong>
-                    </Link>
+            <body>
+                <div className="section-register">
+                    <div
+                        style={{
+                            background: "#fff",
+                            padding: "10px",
+                            width: "70px",
+                            borderRadius: "15px",
+                            position: "absolute",
+                            top: "30px",
+                            left: "34px",
+                        }}
+                    >
+                        <Link to="/">
+                            <strong> Home </strong>
+                        </Link>
+                    </div>
+                    <div className="mp-contact-form ">
+                        <form id="contact-form" onSubmit={handleSubmit}>
+                            <h1>Login</h1>
+                            <div className="row">
+                                <div>
+                                    <input
+                                        type="email"
+                                        placeholder="Email"
+                                        name="email"
+                                        onChange={(e) =>
+                                            setEmail(e.target.value)
+                                        }
+                                    />
+                                </div>
+                                <div>
+                                    <input
+                                        type="password"
+                                        placeholder="Password"
+                                        name="password"
+                                        onChange={(e) =>
+                                            setPassword(e.target.value)
+                                        }
+                                    />
+                                </div>
+                                <div>
+                                    <input
+                                        type="submit"
+                                        defaultValue="Send Message"
+                                    />
+                                </div>
+                            </div>
+                        </form>
+                        <p className="form-messege" />
+                    </div>
                 </div>
-                <div className="mp-contact-form ">
-                    <form id="contact-form" onSubmit={handleSubmit}>
-                        <h1>Login</h1>
-                        <div className="row">
-                            <div>
-                                <input
-                                    type="email"
-                                    placeholder="Email"
-                                    name="email"
-                                    onChange={(e) => setEmail(e.target.value)}
-                                />
-                            </div>
-                            <div>
-                                <input
-                                    type="password"
-                                    placeholder="Password"
-                                    name="password"
-                                    onChange={(e) =>
-                                        setPassword(e.target.value)
-                                    }
-                                />
-                            </div>
-                            <div>
-                                <input
-                                    type="submit"
-                                    defaultValue="Send Message"
-                                />
-                            </div>
-                        </div>
-                    </form>
-                    <p className="form-messege" />
-                </div>
-            </div>
+            </body>
         </>
     );
 };

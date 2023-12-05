@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
 export default function Header() {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -57,8 +58,8 @@ export default function Header() {
                     <nav>
                         <ul>
                             <li>
-                                <a
-                                    href="/"
+                                <Link
+                                    to="/"
                                     style={{
                                         color: "#999999",
                                         display: "block",
@@ -70,11 +71,11 @@ export default function Header() {
                                     }}
                                 >
                                     home
-                                </a>
+                                </Link>
                             </li>
                             <li>
-                                <a
-                                    href="#/"
+                                <Link
+                                    to="/login"
                                     style={{
                                         color: "##999999",
                                         display: "block",
@@ -85,12 +86,12 @@ export default function Header() {
                                         textTransform: "uppercase",
                                     }}
                                 >
-                                    CLASE 1
-                                </a>
+                                    LOGIN
+                                </Link>
                             </li>
                             <li>
-                                <a
-                                    href="#/"
+                                <Link
+                                    to="/register"
                                     style={{
                                         color: "##999999",
                                         display: "block",
@@ -101,61 +102,13 @@ export default function Header() {
                                         textTransform: "uppercase",
                                     }}
                                 >
-                                    CLASE 2
-                                </a>
-                            </li>
-                            <li>
-                                <a
-                                    href="#/"
-                                    style={{
-                                        color: "##999999",
-                                        display: "block",
-                                        fontSize: "13px",
-                                        fontWeight: 600,
-                                        letterSpacing: "0.5px",
-                                        lineHeight: "32px",
-                                        textTransform: "uppercase",
-                                    }}
-                                >
-                                    CLASE 3
-                                </a>
-                            </li>
-                            <li>
-                                <a
-                                    href="#/"
-                                    style={{
-                                        color: "##999999",
-                                        display: "block",
-                                        fontSize: "13px",
-                                        fontWeight: 600,
-                                        letterSpacing: "0.5px",
-                                        lineHeight: "32px",
-                                        textTransform: "uppercase",
-                                    }}
-                                >
-                                    CLASE 4
-                                </a>
-                            </li>
-                            <li>
-                                <a
-                                    href="#/"
-                                    style={{
-                                        color: "##999999",
-                                        display: "block",
-                                        fontSize: "13px",
-                                        fontWeight: 600,
-                                        letterSpacing: "0.5px",
-                                        lineHeight: "32px",
-                                        textTransform: "uppercase",
-                                    }}
-                                >
-                                    CLASE 5
-                                </a>
+                                    REGISTER
+                                </Link>
                             </li>
                         </ul>
                     </nav>
                 </div>
-            )}{" "}
+            )}
         </>
     );
 }
