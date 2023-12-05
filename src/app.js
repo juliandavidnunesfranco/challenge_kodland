@@ -9,7 +9,7 @@ const rateLimit = require("express-rate-limit");
 require("./db/index.js");
 
 //middlewares config to app
-// app.use(express); 
+// app.use(express);
 app.use(express.urlencoded({ extended: true, limit: "150mb" }));
 app.use(express.json({ limit: "50mb" }));
 app.use(express.static("public"));
@@ -18,7 +18,10 @@ app.use(cors());
 
 //cors headers
 app.use((req, res, next) => {
-    res.header("Access-Control-Allow-Origin", "*"); // update to match the domain you will make the request from
+    res.header(
+        "Access-Control-Allow-Origin",
+        "https://challenge-kodland-vsa2.vercel.app"
+    ); // update to match the domain you will make the request from
     res.header("Access-Control-Allow-Credentials", "true");
     res.header(
         "Access-Control-Allow-Headers",
