@@ -6,7 +6,7 @@ import Register from "./components/Register.jsx";
 function App() {
     return (
         <Routes>
-            <Route extric path="/home" element={<Home />} />
+            <Route extric path="/" element={<Home />} />
 
             {/* <Route  path="/" element={user ? <Home /> : <Navigate to="/login" />} /> */}
 
