@@ -1,17 +1,30 @@
 import React from "react";
-import { useSelector } from "react-redux";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+
+const USER_TOKEN = "user";
 
 const Button = () => {
-    const user = useSelector((state) => state.usersReducers.user);
-    console.log("EL BOTON USER", user);
+    const navigate = useNavigate();
+    const userToken = localStorage.getItem(USER_TOKEN);
+
+    const handleButtonClick = () => {
+        if (userToken) {
+            // Si hay un token, redirige a la página de inicio de sesión
+            navigate("/login");
+        } else {
+            // Si no hay un token, redirige a la página de registro
+            navigate("/register");
+        }
+    };
 
     return (
         <>
             <div className="button-container">
-                <Link to={user?.email ? "/login" : "/register"}>
-                    <div className="custom-button">INICIAR</div>
-                </Link>
+                <div>
+                    <div className="custom-button" onClick={handleButtonClick}>
+                        INICIAR
+                    </div>
+                </div>
             </div>
         </>
     );

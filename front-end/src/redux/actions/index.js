@@ -11,18 +11,23 @@ export const GET_ALL_USER = "GET_ALL_USER"; //ok
 /* ACTION FOR CREATE AN USER */
 export function createUser(data) {
     const REGISTER_URL = "http://localhost:4000/users/register";
+    const USER_TOKEN = "user";
 
     return async (dispatch) => {
         try {
             const response = await axios.post(REGISTER_URL, data);
             if (response?.status === 201) {
-                const { user } = response.data;
+                const user = response.data.newUser;
+                localStorage.setItem(USER_TOKEN, JSON.stringify(user));
+
                 swal.fire({
                     icon: "success",
                     title: "Usuario creado correctamente!",
                     text: "Te has registrado.",
                 });
+
                 return dispatch({ type: CREATE_USER, payload: user });
+
             }
         } catch (error) {
             if (error.response) {

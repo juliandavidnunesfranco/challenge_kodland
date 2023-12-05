@@ -1,18 +1,12 @@
-import { useState } from "react";
-import React from "react";
+import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { createUser } from "../redux/actions";
-import { Link, useNavigate } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 
 const Register = () => {
-    const user = useSelector((state) => state.usersReducers.user); // accede al store de la app  donde estan los estados
-
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
-
-    const navigate = useNavigate();
 
     const data = {
         name,
@@ -24,10 +18,7 @@ const Register = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        console.log("EL DATA", data);
-
         dispatch(createUser(data));
-        navigate("/login");
     };
 
     return (
@@ -80,11 +71,9 @@ const Register = () => {
                         left: "34px",
                     }}
                 >
-                    <div>
-                        <Link to="/">
-                            <strong> Home </strong>
-                        </Link>
-                    </div>
+                    <Link to="/">
+                        <strong> Home </strong>
+                    </Link>
                 </div>
                 <div className="mp-contact-form ">
                     <form id="contact-form" onSubmit={handleSubmit}>
