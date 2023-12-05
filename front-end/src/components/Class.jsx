@@ -59,7 +59,7 @@ const Class = () => {
                                 }
                                 onClick={() => handleCategoryChange("*")}
                             >
-                                All
+                                TODOS
                             </button>
                             {data.map((item) => (
                                 <button

@@ -1,23 +1,17 @@
 import React from "react";
-import { useDispatch } from "react-redux";
-import { loginUser } from "../redux/actions";
-
-const data = {
-    email: "juliandavidnunesfranco@hotmail.es",
-    password: "Abcd1234@",
-};
+import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 
 const Button = () => {
-    const dispatch = useDispatch();
-
-    const handleStart = async () => {
-        dispatch(loginUser(data));
-    };
+    const user = useSelector((state) => state.usersReducers.user);
+    console.log("EL BOTON USER", user);
 
     return (
         <>
-            <div className="button-container" onClick={handleStart}>
-                <div className="custom-button">INICIAR</div>
+            <div className="button-container">
+                <Link to={user?.email ? "/login" : "/register"}>
+                    <div className="custom-button">INICIAR</div>
+                </Link>
             </div>
         </>
     );

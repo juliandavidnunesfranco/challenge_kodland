@@ -234,6 +234,65 @@
   background-position: 60% top;
 }
 
+
+
+/*--Register*/
+.section-register{
+  background-image: url('../../image/background2.png');
+  background-size: cover;
+  height: 120vh;
+  width: 100%;
+  display: flex;
+  justify-content:baseline ;
+  align-items: center;
+}
+
+/*-- Register --*/
+ 
+#contact-form {
+  background-color: #ccc;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(14, 13, 13, 0.1);
+  width: 300px;
+  margin-left: 250px;
+  
+} 
+#contact-form h1 {
+  text-align: center; /* Centra el título dentro del formulario */
+  
+}
+#contact-form input[type="text"],
+#contact-form input[type="email"],
+#contact-form input[type="password"] {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+#contact-form input[type="submit"] {
+  background-color: #4caf50;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+#contact-form input[type="submit"]:hover {
+  background-color: #45a049;
+}
+
+.form-messege {
+  color: #4caf50;
+  font-weight: bold;
+}
+
+
+
 /* -----------------------------------
     4. About Section
 --------------------------------------*/
@@ -681,6 +740,7 @@
   height: 350px;
 }
 
+
 /*-- Contact Info --*/
 .mp-contact-info {}
 .mp-contact-info ul {}
@@ -719,6 +779,7 @@
 }
 
 /*-- Contact Form --*/
+
 .mp-contact-form {}
 .mp-contact-form input[type="text"], .mp-contact-form input[type="email"] {
   border: 1px solid #ddd;

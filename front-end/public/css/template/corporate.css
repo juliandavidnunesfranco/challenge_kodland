@@ -2475,41 +2475,6 @@
   background-color: #ea4c89;
 }
 
-/*-- Contact Form --*/
-.co-contact-form {}
-.co-contact-form input[type="text"], .co-contact-form input[type="email"] {
-  border: 1px solid #ddd;
-  width: 100%;
-  height: 40px;
-  line-height: 24px;
-  font-size: 14px;
-  padding: 7px 15px;
-}
-.co-contact-form textarea {
-  border: 1px solid #ddd;
-  width: 100%;
-  height: 120px;
-  line-height: 24px;
-  font-size: 14px;
-  padding: 7px 15px;
-}
-.co-contact-form input[type="submit"] {
-  display: block;
-  border: 1px solid #dddddd;
-  background-color: transparent;
-  height: 40px;
-  text-transform: uppercase;
-  font-size: 14px;
-  padding: 7px 30px;
-  line-height: 24px;
-}
-.co-contact-form input[type="submit"]:hover {
-  background-image: -webkit-gradient(45deg, #4481eb 0%, #04bffe 100%);
-  background-image: -o-linear-gradient(45deg, #4481eb 0%, #04bffe 100%);
-  background-image: linear-gradient(45deg, #4481eb 0%, #04bffe 100%);
-  border-color: transparent;
-  color: #ffffff;
-}
 
 /* -----------------------------------
     19. Footer Section

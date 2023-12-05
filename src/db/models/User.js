@@ -17,26 +17,13 @@ module.exports = (sequelize) => {
             },
             lastName: {
                 type: DataTypes.STRING,
-                allowNull: false,
+                allowNull: true,
             },
             fullName: {
                 type: DataTypes.VIRTUAL,
                 get() {
                     return `${this.name} ${this.lastName}`;
                 },
-            },
-            typeIdentification: {
-                type: DataTypes.STRING,
-                allowNull: true,
-            },
-            identification: {
-                type: DataTypes.STRING,
-
-                allowNull: true,
-            },
-            contact: {
-                type: DataTypes.STRING,
-                allowNull: true,
             },
             email: {
                 type: DataTypes.STRING,
@@ -46,26 +33,9 @@ module.exports = (sequelize) => {
                 },
                 unique: true,
             },
-            address: {
-                type: DataTypes.TEXT,
-                allowNull: true,
-            },
             password: {
                 type: DataTypes.STRING,
                 allowNull: false,
-            },
-            username: {
-                type: DataTypes.STRING,
-                defaultValue: "student",
-                get() {
-                    const rawValue = this.getDataValue("username");
-                    return rawValue ? rawValue.toUpperCase() : null;
-                },
-            },
-            isAdmin: {
-                type: DataTypes.BOOLEAN,
-                defaultValue: false,
-                allowNull: true,
             },
         },
         {

@@ -2,20 +2,10 @@ const bcrypt = require("bcrypt");
 const { User } = require("../db/index.js");
 
 const postUser = async (req, res) => {
-    const {
-        name,
-        lastName,
-        typeIdentification,
-        identification,
-        contact,
-        email,
-        address,
-        password,
-        isAdmin,
-    } = req.body;
+    const { name, lastName, email, password } = req.body;
 
     try {
-        if (!name || !lastName || !email || !password) {
+        if (!name || !email || !password) {
             return res.status(400).send("Information is required!");
         }
         const existingUser = await User.findOne({ where: { email } });
@@ -27,20 +17,17 @@ const postUser = async (req, res) => {
         const hashedPassword = await bcrypt.hash(password, saltRounds);
 
         // Create the new user in the database
-        await User.create({
+        const newUser = await User.create({
             name,
             lastName,
-            typeIdentification,
-            identification,
-            contact,
             email,
-            address,
             password: hashedPassword,
-            isAdmin,
         });
 
         return res.status(201).json({
             message: "User created successfully",
+            newUser,
+            code: 201,
         });
     } catch (error) {
         console.log("Error creating user:", error);
